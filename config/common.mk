@@ -272,9 +272,6 @@ PRODUCT_PACKAGES += \
     libFFmpegExtractor \
     libnamparser
 
-# easy way to extend to add more packages
--include vendor/extra/product.mk
-
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
@@ -324,7 +321,7 @@ else
     CM_EXTRAVERSION :=
 endif
 
-Bean_Version=4.4.4050
+Bean_Version=4.4.4065
 CM_VERSION := BeanStalk-$(Bean_Version)-$(shell date -u +%Y%m%d)$(CM_EXTRAVERSION)-$(CM_BUILD)
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -333,10 +330,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.bs=true \
   ro.goo.developerid=beanstalk \
   ro.goo.rom=$(CM_BUILD) \
-  ro.goo.version=29
+  ro.goo.version=30
 
 -include vendor/cm-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 -include vendor/cyngn/product.mk
+
+$(call inherit-product-if-exists, vendor/extra/product.mk)
