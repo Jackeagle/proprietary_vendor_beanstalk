@@ -204,6 +204,7 @@ PRODUCT_PACKAGES += \
     BeanStalkOTA \
     EOSWeather \
     Apollo \
+    KernelTweaker \
     MonthCalendarWidget \
     LockClock \
     DashClock \
