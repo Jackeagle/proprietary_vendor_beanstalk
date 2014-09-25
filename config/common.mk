@@ -329,9 +329,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version=$(CM_VERSION) \
   ro.modversion=$(CM_VERSION) \
   ro.bs=true \
-  ro.goo.developerid=co-beanstalk \
+  ro.goo.developerid=beanstalk \
   ro.goo.rom=$(CM_BUILD) \
-  ro.goo.version=1
+  ro.goo.version=30
 
 -include vendor/cm-priv/keys/keys.mk
 
