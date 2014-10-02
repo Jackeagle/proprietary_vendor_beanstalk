@@ -202,7 +202,6 @@ PRODUCT_PACKAGES += \
     libscreenrecorder \
     BeanStalkPapers \
     BeanStalkOTA \
-    EOSWeather \
     Apollo \
     KernelTweaker \
     MonthCalendarWidget \
