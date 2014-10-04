@@ -148,9 +148,7 @@ PRODUCT_COPY_FILES +=  \
     vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
     vendor/cm/prebuilt/hololauncherhd/HoloLauncherHD.apk:system/app/HoloLauncherHD.apk \
     vendor/cm/prebuilt/Nova.apk:system/app/Nova.apk \
-    vendor/cm/prebuilt/appsetting.apk:system/app/appsetting.apk \
-    vendor/cm/prebuilt/xposed_installer.apk:system/app/xposed_installer.apk
-
+ 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
     vendor/cm/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
@@ -208,7 +206,9 @@ PRODUCT_PACKAGES += \
     LockClock \
     DashClock \
     CMHome \
-    StalkExplorer
+    StalkExplorer \
+    XposedAppSettings \
+    XposedInstaller
 
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
