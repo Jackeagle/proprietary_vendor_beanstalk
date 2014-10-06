@@ -205,6 +205,7 @@ PRODUCT_PACKAGES += \
     Apollo \
     KernelTweaker \
     MonthCalendarWidget \
+    OmniSwitch \
     LockClock \
     DashClock \
     CMHome \
