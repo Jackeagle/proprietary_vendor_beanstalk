@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= cyanogenmod
+PRODUCT_BRAND ?= beanstalk
 
 SUPERUSER_EMBEDDED := true
 SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
@@ -29,7 +29,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/cm/prebuilt/common/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/beanstalk/prebuilt/common/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -46,7 +46,7 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+    vendor/beanstalk/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 ifdef CM_NIGHTLY
@@ -87,74 +87,74 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Backup Tool
 ifneq ($(WITH_GMS),true)
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/cm/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
-    vendor/cm/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/beanstalk/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/beanstalk/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/beanstalk/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
+    vendor/beanstalk/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 endif
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/cm/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/cm/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/cm/prebuilt/common/etc/backup.conf:system/etc/backup.conf \
-    vendor/cm/prebuilt/common/etc/init.d/00check:system/etc/init.d/00check \
-    vendor/cm/prebuilt/common/etc/init.d/01zipalign:system/etc/init.d/01zipalign \
-    vendor/cm/prebuilt/common/etc/init.d/02sysctl:system/etc/init.d/02sysctl \
-    vendor/cm/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
-    vendor/cm/prebuilt/common/etc/init.d/05freemem:system/etc/init.d/05freemem \
-    vendor/cm/prebuilt/common/etc/init.d/06removecache:system/etc/init.d/06removecache \
-    vendor/cm/prebuilt/common/etc/init.d/07fixperms:system/etc/init.d/07fixperms \
-    vendor/cm/prebuilt/common/etc/init.d/09cron:system/etc/init.d/09cron \
-    vendor/cm/prebuilt/common/etc/init.d/10sdboost:system/etc/init.d/10sdboost \
-    vendor/cm/prebuilt/common/etc/init.d/11battery:system/etc/init.d/11battery \
-    vendor/cm/prebuilt/common/etc/init.d/12touch:system/etc/init.d/12touch \
-    vendor/cm/prebuilt/common/etc/init.d/13minfree:system/etc/init.d/13minfree \
-    vendor/cm/prebuilt/common/etc/init.d/14gpurender:system/etc/init.d/14gpurender \
-    vendor/cm/prebuilt/common/etc/init.d/15sleepers:system/etc/init.d/15sleepers \
-    vendor/cm/prebuilt/common/etc/init.d/16journalism:system/etc/init.d/16journalism \
-    vendor/cm/prebuilt/common/etc/init.d/17sqlite3:system/etc/init.d/17sqlite3 \
-    vendor/cm/prebuilt/common/etc/init.d/18wifisleep:system/etc/init.d/18wifisleep \
-    vendor/cm/prebuilt/common/etc/init.d/19iostats:system/etc/init.d/19iostats \
-    vendor/cm/prebuilt/common/etc/init.d/20setrenice:system/etc/init.d/20setrenice \
-    vendor/cm/prebuilt/common/etc/init.d/21tweaks:system/etc/init.d/21tweaks \
-    vendor/cm/prebuilt/common/etc/init.d/24speedy_modified:system/etc/init.d/24speedy_modified \
-    vendor/cm/prebuilt/common/etc/init.d/25loopy_smoothness_tweak:system/etc/init.d/25loopy_smoothness_tweak \
-    vendor/cm/prebuilt/common/etc/init.d/98tweaks:system/etc/init.d/98tweaks \
-    vendor/cm/prebuilt/common/etc/helpers.sh:system/etc/helpers.sh \
-    vendor/cm/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
-    vendor/cm/prebuilt/common/etc/init.d.cfg:system/etc/init.d.cfg
+    vendor/beanstalk/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/beanstalk/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/beanstalk/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
+    vendor/beanstalk/prebuilt/common/etc/backup.conf:system/etc/backup.conf \
+    vendor/beanstalk/prebuilt/common/etc/init.d/00check:system/etc/init.d/00check \
+    vendor/beanstalk/prebuilt/common/etc/init.d/01zipalign:system/etc/init.d/01zipalign \
+    vendor/beanstalk/prebuilt/common/etc/init.d/02sysctl:system/etc/init.d/02sysctl \
+    vendor/beanstalk/prebuilt/common/etc/init.d/03firstboot:system/etc/init.d/03firstboot \
+    vendor/beanstalk/prebuilt/common/etc/init.d/05freemem:system/etc/init.d/05freemem \
+    vendor/beanstalk/prebuilt/common/etc/init.d/06removecache:system/etc/init.d/06removecache \
+    vendor/beanstalk/prebuilt/common/etc/init.d/07fixperms:system/etc/init.d/07fixperms \
+    vendor/beanstalk/prebuilt/common/etc/init.d/09cron:system/etc/init.d/09cron \
+    vendor/beanstalk/prebuilt/common/etc/init.d/10sdboost:system/etc/init.d/10sdboost \
+    vendor/beanstalk/prebuilt/common/etc/init.d/11battery:system/etc/init.d/11battery \
+    vendor/beanstalk/prebuilt/common/etc/init.d/12touch:system/etc/init.d/12touch \
+    vendor/beanstalk/prebuilt/common/etc/init.d/13minfree:system/etc/init.d/13minfree \
+    vendor/beanstalk/prebuilt/common/etc/init.d/14gpurender:system/etc/init.d/14gpurender \
+    vendor/beanstalk/prebuilt/common/etc/init.d/15sleepers:system/etc/init.d/15sleepers \
+    vendor/beanstalk/prebuilt/common/etc/init.d/16journalism:system/etc/init.d/16journalism \
+    vendor/beanstalk/prebuilt/common/etc/init.d/17sqlite3:system/etc/init.d/17sqlite3 \
+    vendor/beanstalk/prebuilt/common/etc/init.d/18wifisleep:system/etc/init.d/18wifisleep \
+    vendor/beanstalk/prebuilt/common/etc/init.d/19iostats:system/etc/init.d/19iostats \
+    vendor/beanstalk/prebuilt/common/etc/init.d/20setrenice:system/etc/init.d/20setrenice \
+    vendor/beanstalk/prebuilt/common/etc/init.d/21tweaks:system/etc/init.d/21tweaks \
+    vendor/beanstalk/prebuilt/common/etc/init.d/24speedy_modified:system/etc/init.d/24speedy_modified \
+    vendor/beanstalk/prebuilt/common/etc/init.d/25loopy_smoothness_tweak:system/etc/init.d/25loopy_smoothness_tweak \
+    vendor/beanstalk/prebuilt/common/etc/init.d/98tweaks:system/etc/init.d/98tweaks \
+    vendor/beanstalk/prebuilt/common/etc/helpers.sh:system/etc/helpers.sh \
+    vendor/beanstalk/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf \
+    vendor/beanstalk/prebuilt/common/etc/init.d.cfg:system/etc/init.d.cfg
 
 # Added xbin files
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/xbin/zip:system/xbin/zip \
-    vendor/cm/prebuilt/common/xbin/zipalign:system/xbin/zipalign
+    vendor/beanstalk/prebuilt/common/xbin/zip:system/xbin/zip \
+    vendor/beanstalk/prebuilt/common/xbin/zipalign:system/xbin/zipalign
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/beanstalk/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Copy libgif for Nova Launcher 3.0
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/lib/libgif.so:system/lib/libgif.so
+    vendor/beanstalk/prebuilt/common/lib/libgif.so:system/lib/libgif.so
 
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+    vendor/beanstalk/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
 # Copy JNI libarary of Term
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/proprietary/Term.apk:system/app/Term.apk \
-    vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-    vendor/cm/prebuilt/hololauncherhd/HoloLauncherHD.apk:system/app/HoloLauncherHD.apk \
-    vendor/cm/prebuilt/Nova.apk:system/app/Nova.apk \
-    vendor/cm/prebuilt/appsetting.apk:system/app/appsetting.apk \
-    vendor/cm/prebuilt/xposed_installer.apk:system/app/xposed_installer.apk
+    vendor/beanstalk/proprietary/Term.apk:system/app/Term.apk \
+    vendor/beanstalk/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
+    vendor/beanstalk/prebuilt/hololauncherhd/HoloLauncherHD.apk:system/app/HoloLauncherHD.apk \
+    vendor/beanstalk/prebuilt/Nova.apk:system/app/Nova.apk \
+    vendor/beanstalk/prebuilt/appsetting.apk:system/app/appsetting.apk \
+    vendor/beanstalk/prebuilt/xposed_installer.apk:system/app/xposed_installer.apk
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/cm/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    vendor/beanstalk/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/beanstalk/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -166,14 +166,14 @@ PRODUCT_COPY_FILES += \
 
 # This is CM!
 PRODUCT_COPY_FILES += \
-    vendor/cm/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+    vendor/beanstalk/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
+    vendor/beanstalk/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
 
 # T-Mobile theme engine
-include vendor/cm/config/themes_common.mk
+include vendor/beanstalk/config/themes_common.mk
 
 # Required CM packages
 PRODUCT_PACKAGES += \
@@ -263,8 +263,8 @@ PRODUCT_PACKAGES += \
 
 # HFM Files
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/etc/hosts.alt:system/etc/hosts.alt \
-    vendor/cm/prebuilt/etc/hosts.og:system/etc/hosts.og
+    vendor/beanstalk/prebuilt/etc/hosts.alt:system/etc/hosts.alt \
+    vendor/beanstalk/prebuilt/etc/hosts.og:system/etc/hosts.og
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
@@ -273,65 +273,11 @@ PRODUCT_PACKAGES += \
     libFFmpegExtractor \
     libnamparser
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/beanstalk/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/beanstalk/overlay/common
 
-PRODUCT_VERSION_MAJOR = 11
-PRODUCT_VERSION_MINOR = 0
-PRODUCT_VERSION_MAINTENANCE = 0-RC0
-
-# Set CM_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
-
-ifndef CM_BUILDTYPE
-ifdef RELEASE_TYPE
-# Starting with "CM_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^CM_||g')
-        CM_BUILDTYPE := $(RELEASE_TYPE)
-endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(CM_BUILDTYPE)),)
-    CM_BUILDTYPE :=
-endif
-
-ifdef CM_BUILDTYPE
-ifneq ($(CM_BUILDTYPE), SNAPSHOT)
-ifdef CM_EXTRAVERSION
-# Force build type to EXPERIMENTAL
-            CM_BUILDTYPE := EXPERIMENTAL
-# Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-# Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-endif
-else
-ifndef CM_EXTRAVERSION
-# Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            CM_BUILDTYPE := EXPERIMENTAL
-else
-# Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-# Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-endif
-endif
-else
-# If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION :=
-endif
-
-Bean_Version=4.4.4065
-CM_VERSION := BeanStalk-$(Bean_Version)-$(shell date -u +%Y%m%d)$(CM_EXTRAVERSION)-$(CM_BUILD)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.version=$(CM_VERSION) \
-  ro.modversion=$(CM_VERSION) \
-  ro.bs=true \
-  ro.goo.developerid=beanstalk \
-  ro.goo.rom=$(CM_BUILD) \
-  ro.goo.version=30
+# Beanstalk Versioning System
+-include vendor/beanstalk/versions.mk
 
 -include vendor/cm-priv/keys/keys.mk
 
