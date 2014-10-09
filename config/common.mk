@@ -277,7 +277,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/beanstalk/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/beanstalk/overlay/common
 
 # Beanstalk Versioning System
--include vendor/beanstalk/versions.mk
+-include vendor/beanstalk/config/versions.mk
 
 -include vendor/cm-priv/keys/keys.mk
 
